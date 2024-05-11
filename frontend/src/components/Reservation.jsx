@@ -9,9 +9,9 @@ const Reservation = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState(0);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [phone, setPhone] = useState(0);
   const navigate = useNavigate();
 
   const handleReservation = async (e) => {
@@ -30,13 +30,13 @@ const Reservation = () => {
       toast.success(data.message);
       setFirstName("");
       setLastName("");
-      setPhone(0);
       setEmail("");
-      setTime("");
+      setPhone(0);
       setDate("");
+      setTime("");
       navigate("/success");
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error);
     }
   };
 
@@ -74,7 +74,7 @@ const Reservation = () => {
                 />
                 <input
                   type="time"
-                  placeholder="Time"
+                  placeholder="time"
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
                 />
@@ -90,16 +90,16 @@ const Reservation = () => {
                 <input
                   type="number"
                   placeholder="Phone"
-                  value={phone}
+                  // value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
-              <button type="submit" onClick={handleReservation}>
-                RESERVE NOW{" "}
-                <span>
-                  <HiOutlineArrowNarrowRight />
-                </span>
-              </button>
+                <button type="submit" onClick={handleReservation}>
+                  RESERVE NOW{" "}
+                  <span>
+                    <HiOutlineArrowNarrowRight />
+                  </span>
+                </button>
             </form>
           </div>
         </div>
