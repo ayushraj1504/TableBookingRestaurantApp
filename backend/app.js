@@ -11,7 +11,7 @@ dotenv.config({ path: "./config.env" });
 
 app.use(
   cors({
-    origin: ["https://table-booking-restaurant-app.vercel.app"] ,
+    origin: [process.env.FRONTEND_URL] ,
     method: ["POST"],
     credentials: true,
   })
