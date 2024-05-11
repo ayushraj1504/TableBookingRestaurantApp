@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 export const dbConnection = ()=> {
-  mongoose.connect("mongodb+srv://rajayush1504:ayush1234@cluster0.l4x8kdi.mongodb.net/?retryWrites=true",
+  mongoose.connect(process.env.MONGO_URI,
   {
     dbName: "RESTURANT",
   }).then (() => {
